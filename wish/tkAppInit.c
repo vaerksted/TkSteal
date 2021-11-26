@@ -223,7 +223,8 @@ Tcl_AppInit(interp)
      * then no user-specific startup file will be run under any conditions.
      */
 
-    tcl_RcFileName = "~/.wishrc";
+    Tcl_ObjSetVar2(interp, Tcl_NewStringObj("tcl_rcFileName", -1), NULL,
+        Tcl_NewStringObj("~/.wishrc", -1), TCL_GLOBAL_ONLY);
     return TCL_OK;
 }
 
